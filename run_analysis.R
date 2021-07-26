@@ -42,3 +42,4 @@ mergedata5 <- rename(mergedata5, "Subject" = "subject", "Activity" = "activity")
 #Q5
 data2 <- aggregate(. ~ Subject + Activity, mergedata5, mean)
 data2
+write.table(data2, "tidydataset2.txt", row.name=FALSE)
