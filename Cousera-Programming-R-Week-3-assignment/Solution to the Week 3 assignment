@@ -1,0 +1,34 @@
+#obtain the function inv() for getting the inverse of the matrix
+install.packages("matlib")
+library(matlib)
+
+# The first function get the inverse of the imported matrix and cache the result
+makeCacheMatrix <- function(x = matrix()) {
+        m <- NULL
+        setMatrix <- function() {
+                
+                m <<- x
+        }
+        getMatrix <- function() x
+        setinv <- function(inv) m2 <<- inv
+        getinv <- function() m2
+        list(setMatrix = setMatrix, getMatrix = getMatrix,
+             setinv = setinv,
+             getinv = getinv)
+}
+
+
+#  The second function first determine the imported matrix has calculate the inverse 
+#or not. If yes, than return the stored result. If not, then calculate the inverse 
+#and print it.
+cacheSolve <- function(x, ...) {
+        m <- x$getMatrix()
+        if(!is.null(m)) {
+                message("getting cached data")
+                return(m2)
+        }
+        data <- x$getMatrix()
+        m <- inv(data)
+        x$setinv(m2)
+        m
+}
